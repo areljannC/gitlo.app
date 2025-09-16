@@ -12,6 +12,14 @@
 						"column": "@:components.atoms.Buttons.ArchiveButton.label columna {name}",
 						"card": "@:components.atoms.Buttons.ArchiveButton.label tarjeta {name}"
 					}
+				},
+				"UnarchiveButton": {
+					"label": "Desarchivar",
+					"ariaLabel": {
+						"board": "@:components.atoms.Buttons.UnarchiveButton.label tablero {name}",
+						"column": "@:components.atoms.Buttons.UnarchiveButton.label columna {name}",
+						"card": "@:components.atoms.Buttons.UnarchiveButton.label tarjeta {name}"
+					}
 				}
 			}
 		}
