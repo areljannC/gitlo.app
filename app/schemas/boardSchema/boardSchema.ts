@@ -1,33 +1,13 @@
 import * as v from 'valibot';
+import { prefixer } from '~/shared/utils';
+import type { Composer } from 'vue-i18n';
 
-// TODO: localization
-// TODO: unit test
-export const ERROR = Object.freeze({
-	ID: {
-		NON_EMPTY: 'Board ID is required.'
-	},
-	NAME: Object.freeze({
-		NON_EMPTY: 'Board name is required.',
-		MIN_LENGTH: 'Board name must be longer than 4 characters.',
-		MAX_LENGTH: 'Board name must be shorter than 32 characters.'
-	}),
-	DESCRIPTION: Object.freeze({
-		MAX_LENGTH: 'Board description must be shorter than 128 characters.'
-	}),
-	TAG: Object.freeze({
-		MIN_LENGTH: 'Tag must be longer than 2 characters.',
-		MAX_LENGTH: 'Tag must be shorter than 16 characters.'
-	}),
-	COLUMNS: Object.freeze({
-		MIN_VALUE: 'There must be at least 1 column.',
-		MAX_VALUE: 'There can only be up to 16 columns.'
-	})
-});
+const pf = prefixer('schemas.board.');
 
-export const getIdValidator = () => v.pipe(v.string(), v.trim(), v.nonEmpty(ERROR.ID.NON_EMPTY));
-export const getNameValidator = () => v.pipe(v.string(), v.trim(), v.nonEmpty(ERROR.NAME.NON_EMPTY), v.minLength(4, ERROR.NAME.MIN_LENGTH), v.maxLength(32, ERROR.NAME.MAX_LENGTH));
-export const getDescriptionValidator = () => v.optional(v.pipe(v.string(), v.trim(), v.maxLength(128, ERROR.DESCRIPTION.MAX_LENGTH)));
-export const getTagValidator = () => v.optional(v.pipe(v.string(), v.trim(), v.minLength(2, ERROR.TAG.MIN_LENGTH), v.maxLength(16, ERROR.TAG.MAX_LENGTH)));
-export const getTagsValidator = () => v.optional(v.array(v.pipe(v.string(), v.trim(), v.minLength(2, ERROR.TAG.MIN_LENGTH), v.maxLength(16, ERROR.TAG.MAX_LENGTH))));
-export const getColumnsValidator = () => v.pipe(v.number(), v.minValue(1, ERROR.COLUMNS.MIN_VALUE), v.maxValue(16, ERROR.COLUMNS.MAX_VALUE));
-export const getColumnIdsValidator = () => v.pipe(v.array(v.string()), v.minLength(1, ERROR.COLUMNS.MIN_VALUE), v.maxLength(16, ERROR.COLUMNS.MAX_VALUE));
+export const getIdValidator = (t: Composer['t']) => v.pipe(v.string(), v.trim(), v.nonEmpty(t(pf('id.nonEmpty'))));
+export const getNameValidator = (t: Composer['t']) => v.pipe(v.string(), v.trim(), v.nonEmpty(t(pf('name.nonEmpty'))), v.minLength(4, t(pf('name.minLength'))), v.maxLength(32, t(pf('name.maxLength'))));
+export const getDescriptionValidator = (t: Composer['t']) => v.optional(v.pipe(v.string(), v.trim(), v.maxLength(128, t(pf('description.maxLength')))));
+export const getTagValidator = (t: Composer['t']) => v.optional(v.pipe(v.string(), v.trim(), v.minLength(2, t(pf('tag.minLength'))), v.maxLength(16, t(pf('tag.maxLength')))));
+export const getTagsValidator = (t: Composer['t']) => v.optional(v.array(v.pipe(v.string(), v.trim(), v.minLength(2, t(pf('tag.minLength'))), v.maxLength(16, t(pf('tag.maxLength'))))));
+export const getColumnsValidator = (t: Composer['t']) => v.pipe(v.number(), v.minValue(1, t(pf('columns.minCount'))), v.maxValue(16, t(pf('columns.maxCount'))));
+export const getColumnIdsValidator = (t: Composer['t']) => v.pipe(v.array(v.string()), v.minLength(1, t(pf('columns.minCount'))), v.maxLength(16, t(pf('columns.maxCount'))));
