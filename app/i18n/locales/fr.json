@@ -1,5 +1,19 @@
 {
 	"global": {
 		"appName": "gitlo.app"
+	},
+	"components": {
+		"atoms": {
+			"Buttons": {
+				"ArchiveButton": {
+					"label": "Archiver",
+					"ariaLabel": {
+						"board": "@:components.atoms.Buttons.ArchiveButton.label le tableau {name}",
+						"column": "@:components.atoms.Buttons.ArchiveButton.label la colonne {name}",
+						"card": "@:components.atoms.Buttons.ArchiveButton.label la carte {name}"
+					}
+				}
+			}
+		}
 	}
 }

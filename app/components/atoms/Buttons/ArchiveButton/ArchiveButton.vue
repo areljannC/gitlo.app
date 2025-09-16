@@ -1,5 +1,18 @@
 <script setup lang="ts">
-const emit = defineEmits(['archive']);
+import { useI18n } from '#imports';
+import { prefixer } from '~/shared/utils';
+
+const props = defineProps<{
+	type: 'board' | 'column' | 'card';
+	name: string
+}>();
+
+const emit = defineEmits<{
+	(e: 'archive'): void;
+}>();
+
+const { t } = useI18n();
+const pf = prefixer('components.atoms.Buttons.ArchiveButton.');
 
 const handleArchive = () => {
 	emit('archive');
@@ -7,5 +20,6 @@ const handleArchive = () => {
 </script>
 
 <template>
-	<UButton label="Archive" color="secondary" variant="ghost" @click="handleArchive" />
+	<UButton :label="t(pf('label'))" :aria-label="t(pf(`ariaLabel.${props.type}`), { name: props.name })"
+		color="secondary" variant="ghost" @click="handleArchive" />
 </template>
