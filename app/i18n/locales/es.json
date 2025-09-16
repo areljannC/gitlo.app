@@ -64,11 +64,14 @@
 				"CreateBoardButton": {
 					"label": "Crear un tablero",
 					"ariaLabel": "@:components.atoms.Buttons.CreateBoardButton.label"
-				}
-				,
+				},
 				"LoadBoardButton": {
 					"label": "Cargar un tablero",
 					"ariaLabel": "@:components.atoms.Buttons.LoadBoardButton.label"
+				},
+				"EditBoardButton": {
+					"label": "Editar el tablero",
+					"ariaLabel": "@:components.atoms.Buttons.EditBoardButton.label"
 				}
 			}
 		}

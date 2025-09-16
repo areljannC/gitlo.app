@@ -60,16 +60,18 @@
 						"column": "@:components.atoms.Buttons.UpdateButton.label la colonne {name}",
 						"card": "@:components.atoms.Buttons.UpdateButton.label la carte {name}"
 					}
-				}
-				,
+				},
 				"CreateBoardButton": {
 					"label": "Créer un tableau",
 					"ariaLabel": "@:components.atoms.Buttons.CreateBoardButton.label"
-				}
-				,
+				},
 				"LoadBoardButton": {
 					"label": "Charger un tableau",
 					"ariaLabel": "@:components.atoms.Buttons.LoadBoardButton.label"
+				},
+				"EditBoardButton": {
+					"label": "Éditer le tableau",
+					"ariaLabel": "@:components.atoms.Buttons.EditBoardButton.label"
 				}
 			}
 		}

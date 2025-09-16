@@ -68,6 +68,10 @@
 				"LoadBoardButton": {
 					"label": "Load a board",
 					"ariaLabel": "@:components.atoms.Buttons.LoadBoardButton.label"
+				},
+				"EditBoardButton": {
+					"label": "Edit board",
+					"ariaLabel": "@:components.atoms.Buttons.EditBoardButton.label"
 				}
 			}
 		}
