@@ -52,6 +52,14 @@
 						"column": "@:components.atoms.Buttons.EditButton.label column {name}",
 						"card": "@:components.atoms.Buttons.EditButton.label card {name}"
 					}
+				},
+				"UpdateButton": {
+					"label": "Update",
+					"ariaLabel": {
+						"board": "@:components.atoms.Buttons.UpdateButton.label board {name}",
+						"column": "@:components.atoms.Buttons.UpdateButton.label column {name}",
+						"card": "@:components.atoms.Buttons.UpdateButton.label card {name}"
+					}
 				}
 			}
 		}

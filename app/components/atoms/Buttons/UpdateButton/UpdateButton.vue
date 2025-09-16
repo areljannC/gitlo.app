@@ -1,5 +1,18 @@
 <script setup lang="ts">
-const emit = defineEmits(['update']);
+import { useI18n } from '#imports';
+import { prefixer } from '~/shared/utils';
+
+const props = defineProps<{
+	type: 'board' | 'column' | 'card';
+	name: string
+}>();
+
+const emit = defineEmits<{
+	(e: 'update'): void;
+}>();
+
+const { t } = useI18n();
+const pf = prefixer('components.atoms.Buttons.UpdateButton.');
 
 const handleUpdate = () => {
 	emit('update');
@@ -7,5 +20,6 @@ const handleUpdate = () => {
 </script>
 
 <template>
-	<UButton label="Update" color="primary" @click="handleUpdate" />
+	<UButton :label="t(pf('label'))" :aria-label="t(pf(`ariaLabel.${props.type}`), { name: props.name })"
+		color="primary" @click="handleUpdate" />
 </template>

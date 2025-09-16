@@ -52,6 +52,14 @@
 						"column": "@:components.atoms.Buttons.EditButton.label la columna {name}",
 						"card": "@:components.atoms.Buttons.EditButton.label la tarjeta {name}"
 					}
+				},
+				"UpdateButton": {
+					"label": "Actualizar",
+					"ariaLabel": {
+						"board": "@:components.atoms.Buttons.UpdateButton.label el tablero {name}",
+						"column": "@:components.atoms.Buttons.UpdateButton.label la columna {name}",
+						"card": "@:components.atoms.Buttons.UpdateButton.label la tarjeta {name}"
+					}
 				}
 			}
 		}
