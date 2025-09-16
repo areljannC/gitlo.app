@@ -1,18 +1,25 @@
 import { describe, it, expect } from 'vitest';
-import { mountSuspended } from '@nuxt/test-utils/runtime';
+import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime';
+import { prefixer } from '~/shared/utils';
 import CreateBoardButton from './CreateBoardButton.vue';
 
+mockNuxtImport('useI18n', () => () => ({ t: (key: string) => key }));
+const pf = prefixer('components.atoms.Buttons.CreateBoardButton.');
+
 describe('CreateBoardButton', () => {
-	describe('emits', () => {
-		it('should emit `create` when the button is clicked', async () => {
-			const wrapper = await mountSuspended(CreateBoardButton);
-			await wrapper.find('button').trigger('click');
-			expect(wrapper.emitted()).toHaveProperty('create');
+	it('should render the create board button with the correct label', async () => {
+		const wrapper = await mountSuspended(CreateBoardButton, {
+			props: { type: 'board', name: 'Test Board' }
 		});
+		expect(wrapper.text()).toContain(pf('label'));
 	});
 
-	it('should render a button with the correct label', async () => {
-		const wrapper = await mountSuspended(CreateBoardButton);
-		expect(wrapper.find('button').text()).toContain('Create a board');
+	it('should emit `create` event when clicked', async () => {
+		const wrapper = await mountSuspended(CreateBoardButton, {
+			props: { type: 'board', name: 'Test Board' }
+		});
+		await wrapper.find('button').trigger('click');
+		expect(wrapper.emitted('create')).toBeTruthy();
+		expect(wrapper.emitted('create')!.length).toBe(1);
 	});
 });

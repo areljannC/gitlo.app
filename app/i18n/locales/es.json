@@ -60,6 +60,10 @@
 						"column": "@:components.atoms.Buttons.UpdateButton.label la columna {name}",
 						"card": "@:components.atoms.Buttons.UpdateButton.label la tarjeta {name}"
 					}
+				},
+				"CreateBoardButton": {
+					"label": "Crear un tablero",
+					"ariaLabel": "@:components.atoms.Buttons.CreateBoardButton.label"
 				}
 			}
 		}

@@ -61,6 +61,11 @@
 						"card": "@:components.atoms.Buttons.UpdateButton.label la carte {name}"
 					}
 				}
+				,
+				"CreateBoardButton": {
+					"label": "Créer un tableau",
+					"ariaLabel": "@:components.atoms.Buttons.CreateBoardButton.label"
+				}
 			}
 		}
 	}
