@@ -1,8 +1,12 @@
 import { vi, describe, it, expect, beforeEach } from 'vitest';
 import { setActivePinia, createPinia } from 'pinia';
-import { mountSuspended } from '@nuxt/test-utils/runtime';
+import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime';
+import { prefixer } from '~/shared/utils';
 import { useSettingsStore } from '~/stores';
 import ToggleArchivedCardsButton from './ToggleArchivedCardsButton.vue';
+
+mockNuxtImport('useI18n', () => () => ({ t: (key: string) => key }));
+const pf = prefixer('components.atoms.Buttons.ToggleArchivedCardsButton.');
 
 describe('ToggleArchivedCardsButton', () => {
 	let pinia: any;
@@ -17,14 +21,14 @@ describe('ToggleArchivedCardsButton', () => {
 		const settingsStore = useSettingsStore();
 		const wrapper = await mountSuspended(ToggleArchivedCardsButton, { global: { plugins: [pinia] } });
 		expect(settingsStore.showArchivedCards).toBe(false);
-		expect(wrapper.text()).toContain('Show archived cards');
+		expect(wrapper.text()).toContain(pf('showArchivedCards.label'));
 	});
 
 	it('renders "Hide archived cards" when `showArchivedCards` is `true`', async () => {
 		const settingsStore = useSettingsStore();
 		settingsStore.setShowArchivedCards(true);
 		const wrapper = await mountSuspended(ToggleArchivedCardsButton, { global: { plugins: [pinia] } });
-		expect(wrapper.text()).toContain('Hide archived cards');
+		expect(wrapper.text()).toContain(pf('hideArchivedCards.label'));
 		expect(settingsStore.showArchivedCards).toBe(true);
 	});
 

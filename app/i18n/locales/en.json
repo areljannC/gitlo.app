@@ -96,6 +96,16 @@
 						"label": "Hide archived columns",
 						"ariaLabel": "@:components.atoms.Buttons.ToggleArchivedColumnsButton.hideArchivedColumns.label"
 					}
+				},
+				"ToggleArchivedCardsButton": {
+					"showArchivedCards": {
+						"label": "Show archived cards",
+						"ariaLabel": "@:components.atoms.Buttons.ToggleArchivedCardsButton.showArchivedCards.label"
+					},
+					"hideArchivedCards": {
+						"label": "Hide archived cards",
+						"ariaLabel": "@:components.atoms.Buttons.ToggleArchivedCardsButton.hideArchivedCards.label"
+					}
 				}
 			}
 		}
