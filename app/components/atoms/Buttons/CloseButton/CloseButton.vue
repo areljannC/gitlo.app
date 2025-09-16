@@ -1,5 +1,18 @@
 <script setup lang="ts">
-const emit = defineEmits(['close']);
+import { useI18n } from '#imports';
+import { prefixer } from '~/shared/utils';
+
+const props = defineProps<{
+	type: 'board' | 'column' | 'card';
+	name: string
+}>();
+
+const emit = defineEmits<{
+	(e: 'close'): void;
+}>();
+
+const { t } = useI18n();
+const pf = prefixer('components.atoms.Buttons.CloseButton.');
 
 const handleClose = () => {
 	emit('close');
@@ -7,5 +20,6 @@ const handleClose = () => {
 </script>
 
 <template>
-	<UButton label="Close" color="neutral" variant="ghost" @click="handleClose" />
+	<UButton :label="t(pf('label'))" :aria-label="t(pf(`ariaLabel.${props.type}`), { name: props.name })"
+		color="neutral" variant="ghost" @click="handleClose" />
 </template>

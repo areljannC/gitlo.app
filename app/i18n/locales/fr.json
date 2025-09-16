@@ -28,6 +28,14 @@
 						"column": "@:components.atoms.Buttons.CancelButton.label les modifications de la colonne {name}",
 						"card": "@:components.atoms.Buttons.CancelButton.label les modifications de la carte {name}"
 					}
+				},
+				"CloseButton": {
+					"label": "Fermer",
+					"ariaLabel": {
+						"board": "@:components.atoms.Buttons.CloseButton.label le tableau {name}",
+						"column": "@:components.atoms.Buttons.CloseButton.label la colonne {name}",
+						"card": "@:components.atoms.Buttons.CloseButton.label la carte {name}"
+					}
 				}
 			}
 		}

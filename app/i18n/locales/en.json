@@ -28,6 +28,14 @@
 						"column": "@:components.atoms.Buttons.CancelButton.label column changes {name}",
 						"card": "@:components.atoms.Buttons.CancelButton.label card changes {name}"
 					}
+				},
+				"CloseButton": {
+					"label": "Close",
+					"ariaLabel": {
+						"board": "@:components.atoms.Buttons.CloseButton.label board {name}",
+						"column": "@:components.atoms.Buttons.CloseButton.label column {name}",
+						"card": "@:components.atoms.Buttons.CloseButton.label card {name}"
+					}
 				}
 			}
 		}

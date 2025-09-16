@@ -28,6 +28,14 @@
 						"column": "@:components.atoms.Buttons.CancelButton.label los cambios de la columna {name}",
 						"card": "@:components.atoms.Buttons.CancelButton.label los cambios de la tarjeta {name}"
 					}
+				},
+				"CloseButton": {
+					"label": "Cerrar",
+					"ariaLabel": {
+						"board": "@:components.atoms.Buttons.CloseButton.label tablero {name}",
+						"column": "@:components.atoms.Buttons.CloseButton.label columna {name}",
+						"card": "@:components.atoms.Buttons.CloseButton.label tarjeta {name}"
+					}
 				}
 			}
 		}
