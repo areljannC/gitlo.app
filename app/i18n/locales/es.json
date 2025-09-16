@@ -20,6 +20,14 @@
 						"column": "@:components.atoms.Buttons.UnarchiveButton.label columna {name}",
 						"card": "@:components.atoms.Buttons.UnarchiveButton.label tarjeta {name}"
 					}
+				},
+				"CancelButton": {
+					"label": "Cancelar",
+					"ariaLabel": {
+						"board": "@:components.atoms.Buttons.CancelButton.label los cambios del tablero {name}",
+						"column": "@:components.atoms.Buttons.CancelButton.label los cambios de la columna {name}",
+						"card": "@:components.atoms.Buttons.CancelButton.label los cambios de la tarjeta {name}"
+					}
 				}
 			}
 		}

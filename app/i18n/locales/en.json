@@ -20,6 +20,14 @@
 						"column": "@:components.atoms.Buttons.UnarchiveButton.label column {name}",
 						"card": "@:components.atoms.Buttons.UnarchiveButton.label card {name}"
 					}
+				},
+				"CancelButton": {
+					"label": "Cancel",
+					"ariaLabel": {
+						"board": "@:components.atoms.Buttons.CancelButton.label board changes {name}",
+						"column": "@:components.atoms.Buttons.CancelButton.label column changes {name}",
+						"card": "@:components.atoms.Buttons.CancelButton.label card changes {name}"
+					}
 				}
 			}
 		}

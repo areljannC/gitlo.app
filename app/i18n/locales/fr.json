@@ -20,6 +20,14 @@
 						"column": "@:components.atoms.Buttons.UnarchiveButton.label la colonne {name}",
 						"card": "@:components.atoms.Buttons.UnarchiveButton.label la carte {name}"
 					}
+				},
+				"CancelButton": {
+					"label": "Annuler",
+					"ariaLabel": {
+						"board": "@:components.atoms.Buttons.CancelButton.label les modifications du tableau {name}",
+						"column": "@:components.atoms.Buttons.CancelButton.label les modifications de la colonne {name}",
+						"card": "@:components.atoms.Buttons.CancelButton.label les modifications de la carte {name}"
+					}
 				}
 			}
 		}
