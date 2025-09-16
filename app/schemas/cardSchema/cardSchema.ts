@@ -1,15 +1,8 @@
 import * as v from 'valibot';
+import { prefixer } from '~/shared/utils';
+import type { Composer } from 'vue-i18n';
 
-// TODO: localization
-// TODO: unit test
-export const ERROR = Object.freeze({
-	ID: {
-		NON_EMPTY: 'Card ID is required.'
-	},
-	NAME: Object.freeze({
-		MAX_LENGTH: 'Card name must be shorter than 64 characters.'
-	})
-});
+const pf = prefixer('schemas.column.');
 
-export const getIdValidator = () => v.pipe(v.string(), v.trim(), v.nonEmpty(ERROR.ID.NON_EMPTY));
-export const getNameValidator = () => v.pipe(v.string(), v.trim(), v.maxLength(64, ERROR.NAME.MAX_LENGTH));
+export const getIdValidator = (t: Composer['t']) => v.pipe(v.string(), v.trim(), v.nonEmpty(t(pf('id.nonEmpty'))));
+export const getNameValidator = (t: Composer['t']) => v.pipe(v.string(), v.trim(), v.maxLength(64, t(pf('name.maxLength'))));
