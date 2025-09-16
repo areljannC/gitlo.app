@@ -3,7 +3,7 @@ import { setActivePinia, createPinia } from 'pinia';
 import { mountSuspended, mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { UButton } from '#components';
 import { useDataStore } from '~/stores';
-import { getTimestamp } from '~/shared/utils';
+import { getTimestamp, prefixer } from '~/shared/utils';
 import { MOCK_TIMESTAMP, MOCK_BOARD } from '~/constants';
 import LoadBoardButton from './LoadBoardButton.vue';
 
@@ -14,6 +14,9 @@ vi.mock('~/shared/utils', async () => {
 		getTimestamp: vi.fn()
 	};
 });
+
+mockNuxtImport('useI18n', () => () => ({ t: (key: string) => key }));
+const pf = prefixer('components.atoms.Buttons.LoadBoardButton.');
 
 mockNuxtImport('useColorMode', () => {
 	const colorMode = ref('light');
@@ -32,7 +35,7 @@ describe('LoadBoardButton', () => {
 
 	it('should render a button with the correct label', async () => {
 		const wrapper = await mountSuspended(LoadBoardButton, { global: { plugins: [pinia] } });
-		expect(wrapper.text()).toContain('Load board');
+		expect(wrapper.text()).toContain(pf('label'));
 	});
 
 	it('should trigger file input click when button is clicked', async () => {

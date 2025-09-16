@@ -66,6 +66,11 @@
 					"label": "Créer un tableau",
 					"ariaLabel": "@:components.atoms.Buttons.CreateBoardButton.label"
 				}
+				,
+				"LoadBoardButton": {
+					"label": "Charger un tableau",
+					"ariaLabel": "@:components.atoms.Buttons.LoadBoardButton.label"
+				}
 			}
 		}
 	}

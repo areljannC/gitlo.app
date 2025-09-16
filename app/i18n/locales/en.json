@@ -64,6 +64,10 @@
 				"CreateBoardButton": {
 					"label": "Create a board",
 					"ariaLabel": "@:components.atoms.Buttons.CreateBoardButton.label"
+				},
+				"LoadBoardButton": {
+					"label": "Load a board",
+					"ariaLabel": "@:components.atoms.Buttons.LoadBoardButton.label"
 				}
 			}
 		}

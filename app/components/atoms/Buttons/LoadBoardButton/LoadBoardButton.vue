@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useI18n } from '#imports';
+import { prefixer } from '~/shared/utils';
 import { useDataStore } from '~/stores';
+
+const { t } = useI18n();
+const pf = prefixer('components.atoms.Buttons.LoadBoardButton.');
 
 const dataStore = useDataStore();
 const isLoadingBoard = ref(false);
@@ -32,11 +37,12 @@ const handleSelectDirectory = async (event: Event): Promise<void> => {
 };
 
 const buttonClass = 'text-lg';
+const hoverEffectClass = 'hover:shadow-md hover:-translate-y-0.25 transition-transform duration-50 ease-in-out';
 </script>
 
 <template>
-	<UButton label="Load board" :loading="isLoadingBoard" trailing :color="isLoadingBoard ? 'neutral' : 'primary'"
-		size="md" :class="[buttonClass]" trailing-icon="heroicons:document-arrow-up-solid" @click="handleLoadBoard"
-		:disabled="isLoadingBoard" />
+	<UButton :label="t(pf('label'))" :aria-label="t(pf('ariaLabel'))" :loading="isLoadingBoard" trailing
+		:color="isLoadingBoard ? 'neutral' : 'primary'" size="md" :class="[buttonClass, hoverEffectClass]"
+		trailing-icon="heroicons:document-arrow-up-solid" @click="handleLoadBoard" :disabled="isLoadingBoard" />
 	<input ref="fileInputRef" type="file" accept=".json" style="display: none" @change="handleSelectDirectory" />
 </template>
