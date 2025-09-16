@@ -1,8 +1,12 @@
 import { vi, describe, it, expect, beforeEach } from 'vitest';
 import { setActivePinia, createPinia } from 'pinia';
-import { mountSuspended } from '@nuxt/test-utils/runtime';
+import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime';
+import { prefixer } from '~/shared/utils';
 import { useSettingsStore } from '~/stores';
 import ToggleArchivedBoardsButton from './ToggleArchivedBoardsButton.vue';
+
+mockNuxtImport('useI18n', () => () => ({ t: (key: string) => key }));
+const pf = prefixer('components.atoms.Buttons.ToggleArchivedBoardsButton.');
 
 describe('ToggleArchivedBoardsButton', () => {
 	let pinia: any;
@@ -16,7 +20,7 @@ describe('ToggleArchivedBoardsButton', () => {
 	it('renders "Show archived boards" when `showArchivedBoards` is `false`', async () => {
 		const settingsStore = useSettingsStore();
 		const wrapper = await mountSuspended(ToggleArchivedBoardsButton, { global: { plugins: [pinia] } });
-		expect(wrapper.text()).toContain('Show archived boards');
+		expect(wrapper.text()).toContain(pf('showArchivedBoards.label'));
 		expect(settingsStore.showArchivedBoards).toBe(false);
 	});
 
@@ -24,7 +28,7 @@ describe('ToggleArchivedBoardsButton', () => {
 		const settingsStore = useSettingsStore();
 		settingsStore.setShowArchivedBoards(true);
 		const wrapper = await mountSuspended(ToggleArchivedBoardsButton, { global: { plugins: [pinia] } });
-		expect(wrapper.text()).toContain('Hide archived boards');
+		expect(wrapper.text()).toContain(pf('hideArchivedBoards.label'));
 		expect(settingsStore.showArchivedBoards).toBe(true);
 	});
 

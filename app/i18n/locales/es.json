@@ -76,6 +76,16 @@
 				"SaveBoardButton": {
 					"label": "Guardar el tablero",
 					"ariaLabel": "@:components.atoms.Buttons.SaveBoardButton.label"
+				},
+				"ToggleArchivedBoardsButton": {
+					"showArchivedBoards": {
+						"label": "Mostrar tableros archivados",
+						"ariaLabel": "@:components.atoms.Buttons.ToggleArchivedBoardsButton.showArchivedBoards.label"
+					},
+					"hideArchivedBoards": {
+						"label": "Ocultar tableros archivados",
+						"ariaLabel": "@:components.atoms.Buttons.ToggleArchivedBoardsButton.hideArchivedBoards.label"
+					}
 				}
 			}
 		}

@@ -76,6 +76,16 @@
 				"SaveBoardButton": {
 					"label": "Save board",
 					"ariaLabel": "@:components.atoms.Buttons.SaveBoardButton.label"
+				},
+				"ToggleArchivedBoardsButton": {
+					"showArchivedBoards": {
+						"label": "Show archived boards",
+						"ariaLabel": "@:components.atoms.Buttons.ToggleArchivedBoardsButton.showArchivedBoards.label"
+					},
+					"hideArchivedBoards": {
+						"label": "Hide archived boards",
+						"ariaLabel": "@:components.atoms.Buttons.ToggleArchivedBoardsButton.hideArchivedBoards.label"
+					}
 				}
 			}
 		}
