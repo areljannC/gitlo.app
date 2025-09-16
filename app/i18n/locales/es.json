@@ -36,6 +36,14 @@
 						"column": "@:components.atoms.Buttons.CloseButton.label columna {name}",
 						"card": "@:components.atoms.Buttons.CloseButton.label tarjeta {name}"
 					}
+				},
+				"DeleteButton": {
+					"label": "Eliminar",
+					"ariaLabel": {
+						"board": "@:components.atoms.Buttons.DeleteButton.label el tablero {name}",
+						"column": "@:components.atoms.Buttons.DeleteButton.label la columna {name}",
+						"card": "@:components.atoms.Buttons.DeleteButton.label la tarjeta {name}"
+					}
 				}
 			}
 		}
