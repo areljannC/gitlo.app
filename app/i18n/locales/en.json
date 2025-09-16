@@ -44,6 +44,14 @@
 						"column": "@:components.atoms.Buttons.DeleteButton.label column {name}",
 						"card": "@:components.atoms.Buttons.DeleteButton.label card {name}"
 					}
+				},
+				"EditButton": {
+					"label": "Edit",
+					"ariaLabel": {
+						"board": "@:components.atoms.Buttons.EditButton.label board {name}",
+						"column": "@:components.atoms.Buttons.EditButton.label column {name}",
+						"card": "@:components.atoms.Buttons.EditButton.label card {name}"
+					}
 				}
 			}
 		}

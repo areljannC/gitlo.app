@@ -1,5 +1,18 @@
 <script setup lang="ts">
-const emit = defineEmits(['edit']);
+import { useI18n } from '#imports';
+import { prefixer } from '~/shared/utils';
+
+const props = defineProps<{
+	type: 'board' | 'column' | 'card';
+	name: string
+}>();
+
+const emit = defineEmits<{
+	(e: 'edit'): void;
+}>();
+
+const { t } = useI18n();
+const pf = prefixer('components.atoms.Buttons.EditButton.');
 
 const handleEdit = () => {
 	emit('edit');
@@ -7,5 +20,6 @@ const handleEdit = () => {
 </script>
 
 <template>
-	<UButton label="Edit" color="secondary" @click="handleEdit" />
+	<UButton :label="t(pf('label'))" :aria-label="t(pf(`ariaLabel.${props.type}`), { name: props.name })"
+		color="secondary" @click="handleEdit" />
 </template>
