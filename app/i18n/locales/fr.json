@@ -106,6 +106,10 @@
 						"label": "Masquer les cartes archivées",
 						"ariaLabel": "@:components.atoms.Buttons.ToggleArchivedCardsButton.hideArchivedCards.label"
 					}
+				},
+				"ToggleThemeButton": {
+					"label": "Changer le thème",
+					"ariaLabel": "@:components.atoms.Buttons.ToggleThemeButton.label"
 				}
 			}
 		}
