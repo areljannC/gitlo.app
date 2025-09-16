@@ -86,6 +86,16 @@
 						"label": "Masquer les tableaux archivés",
 						"ariaLabel": "@:components.atoms.Buttons.ToggleArchivedBoardsButton.hideArchivedBoards.label"
 					}
+				},
+				"ToggleArchivedColumnsButton": {
+					"showArchivedColumns": {
+						"label": "Afficher les colonnes archivées",
+						"ariaLabel": "@:components.atoms.Buttons.ToggleArchivedColumnsButton.showArchivedColumns.label"
+					},
+					"hideArchivedColumns": {
+						"label": "Masquer les colonnes archivées",
+						"ariaLabel": "@:components.atoms.Buttons.ToggleArchivedColumnsButton.hideArchivedColumns.label"
+					}
 				}
 			}
 		}
