@@ -2,9 +2,13 @@ import { vi, describe, beforeEach, it, expect } from 'vitest';
 import { setActivePinia, createPinia } from 'pinia';
 import { mountSuspended, mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { UButton } from '#components';
+import { prefixer } from '~/shared/utils';
 import { useDataStore } from '~/stores';
 import { MOCK_HASH } from '~/constants';
 import SaveBoardButton from './SaveBoardButton.vue';
+
+mockNuxtImport('useI18n', () => () => ({ t: (key: string) => key }));
+const pf = prefixer('components.atoms.Buttons.SaveBoardButton.');
 
 mockNuxtImport('useColorMode', () => {
 	const colorMode = ref('light');
@@ -26,7 +30,7 @@ describe('SaveBoardButton', () => {
 			props: { boardId: BOARD_ID },
 			global: { plugins: [pinia] }
 		});
-		expect(wrapper.text()).toContain('Save board');
+		expect(wrapper.text()).toContain(pf('label'));
 	});
 
 	it('should call dataStore.saveBoard with boardId when clicked', async () => {

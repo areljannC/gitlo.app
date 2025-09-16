@@ -72,6 +72,10 @@
 				"EditBoardButton": {
 					"label": "Edit board",
 					"ariaLabel": "@:components.atoms.Buttons.EditBoardButton.label"
+				},
+				"SaveBoardButton": {
+					"label": "Save board",
+					"ariaLabel": "@:components.atoms.Buttons.SaveBoardButton.label"
 				}
 			}
 		}

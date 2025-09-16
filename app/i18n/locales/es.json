@@ -72,6 +72,10 @@
 				"EditBoardButton": {
 					"label": "Editar el tablero",
 					"ariaLabel": "@:components.atoms.Buttons.EditBoardButton.label"
+				},
+				"SaveBoardButton": {
+					"label": "Guardar el tablero",
+					"ariaLabel": "@:components.atoms.Buttons.SaveBoardButton.label"
 				}
 			}
 		}

@@ -2,8 +2,8 @@ import { vi, describe, beforeEach, it, expect } from 'vitest';
 import { setActivePinia, createPinia } from 'pinia';
 import { mountSuspended, mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { UButton } from '#components';
-import { useDataStore } from '~/stores';
 import { getTimestamp, prefixer } from '~/shared/utils';
+import { useDataStore } from '~/stores';
 import { MOCK_TIMESTAMP, MOCK_BOARD } from '~/constants';
 import LoadBoardButton from './LoadBoardButton.vue';
 
