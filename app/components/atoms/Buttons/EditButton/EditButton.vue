@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { defineProps, defineEmits } from 'vue';
 import { useI18n } from '#imports';
 import { prefixer } from '~/shared/utils';
 

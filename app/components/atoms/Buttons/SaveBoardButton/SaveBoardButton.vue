@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { defineProps, ref } from 'vue';
 import { useI18n } from '#imports';
 import { prefixer } from '~/shared/utils';
 import { useDataStore } from '~/stores';
