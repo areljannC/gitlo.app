@@ -1,30 +1,34 @@
 import { describe, it, expect } from 'vitest';
-import { mountSuspended } from '@nuxt/test-utils/runtime';
+import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime';
+import { prefixer } from '~/shared/utils';
 import Tag from './Tag.vue';
 
-const MOCK_LABEL = 'MOCK_LABEL';
+const MOCK_TAG_NAME = 'MOCK_TAG_NAME';
+
+mockNuxtImport('useI18n', () => () => ({ t: (key: string) => key }));
+const pf = prefixer('components.atoms.Tag.');
 
 describe('Tag', () => {
 	describe('props', () => {
 		it('should have default props', async () => {
-			const wrapper = await mountSuspended(Tag, { props: { label: MOCK_LABEL } });
+			const wrapper = await mountSuspended(Tag, { props: { name: MOCK_TAG_NAME } });
 			const props = wrapper.props();
-			expect(props).toHaveProperty('label', MOCK_LABEL);
+			expect(props).toHaveProperty('name', MOCK_TAG_NAME);
 			expect(props).toHaveProperty('color', 'info');
 			expect(props).toHaveProperty('variant', 'soft');
 			expect(props).toHaveProperty('size', 'md');
 			expect(props).toHaveProperty('deleteable', false);
 		});
 
-		describe('label', () => {
-			it('should receive and render the `label` prop', async () => {
+		describe('name', () => {
+			it('should receive and render the `name` prop', async () => {
 				const wrapper = await mountSuspended(Tag, {
 					props: {
-						label: MOCK_LABEL
+						name: MOCK_TAG_NAME
 					}
 				});
-				expect(wrapper.props()).toHaveProperty('label', MOCK_LABEL);
-				expect(wrapper.text()).toContain(MOCK_LABEL);
+				expect(wrapper.props()).toHaveProperty('name', MOCK_TAG_NAME);
+				expect(wrapper.text()).toContain('components.atoms.Tag.label');
 			});
 		});
 
@@ -36,7 +40,7 @@ describe('Tag', () => {
 				MOCK_COLOR = 'primary';
 				wrapper = await mountSuspended(Tag, {
 					props: {
-						label: MOCK_LABEL,
+						name: MOCK_TAG_NAME,
 						color: MOCK_COLOR
 					}
 				});
@@ -46,7 +50,7 @@ describe('Tag', () => {
 				MOCK_COLOR = 'secondary';
 				wrapper = await mountSuspended(Tag, {
 					props: {
-						label: MOCK_LABEL,
+						name: MOCK_TAG_NAME,
 						color: MOCK_COLOR
 					}
 				});
@@ -63,7 +67,7 @@ describe('Tag', () => {
 				MOCK_VARIANT = 'soft';
 				wrapper = await mountSuspended(Tag, {
 					props: {
-						label: MOCK_LABEL,
+						name: MOCK_TAG_NAME,
 						variant: MOCK_VARIANT
 					}
 				});
@@ -72,7 +76,7 @@ describe('Tag', () => {
 				MOCK_VARIANT = 'solid';
 				wrapper = await mountSuspended(Tag, {
 					props: {
-						label: MOCK_LABEL,
+						name: MOCK_TAG_NAME,
 						variant: MOCK_VARIANT
 					}
 				});
@@ -88,7 +92,7 @@ describe('Tag', () => {
 				MOCK_SIZE = 'sm';
 				wrapper = await mountSuspended(Tag, {
 					props: {
-						label: MOCK_LABEL,
+						name: MOCK_TAG_NAME,
 						size: MOCK_SIZE
 					}
 				});
@@ -98,7 +102,7 @@ describe('Tag', () => {
 				MOCK_SIZE = 'md';
 				wrapper = await mountSuspended(Tag, {
 					props: {
-						label: MOCK_LABEL,
+						name: MOCK_TAG_NAME,
 						size: MOCK_SIZE
 					}
 				});
@@ -111,26 +115,26 @@ describe('Tag', () => {
 			it('should render a button when `deleteable` is `true`', async () => {
 				const wrapper = await mountSuspended(Tag, {
 					props: {
-						label: MOCK_LABEL,
+						name: MOCK_TAG_NAME,
 						deleteable: true
 					}
 				});
-				expect(wrapper.props()).toHaveProperty('label', MOCK_LABEL);
+				expect(wrapper.props()).toHaveProperty('name', MOCK_TAG_NAME);
 				expect(wrapper.props()).toHaveProperty('deleteable', true);
-				expect(wrapper.text()).toContain(MOCK_LABEL);
+				expect(wrapper.text()).toContain('components.atoms.Tag.label');
 				expect(wrapper.find('button').exists()).toBe(true);
 			});
 
 			it('should not render a button when `deleteable` is `false`', async () => {
 				const wrapper = await mountSuspended(Tag, {
 					props: {
-						label: MOCK_LABEL,
+						name: MOCK_TAG_NAME,
 						deleteable: false
 					}
 				});
-				expect(wrapper.props()).toHaveProperty('label', MOCK_LABEL);
+				expect(wrapper.props()).toHaveProperty('name', MOCK_TAG_NAME);
 				expect(wrapper.props()).toHaveProperty('deleteable', false);
-				expect(wrapper.text()).toContain(MOCK_LABEL);
+				expect(wrapper.text()).toContain('components.atoms.Tag.label');
 				expect(wrapper.find('button').exists()).toBe(false);
 			});
 		});
@@ -140,13 +144,13 @@ describe('Tag', () => {
 		it('should emit `delete` when the delete button is clicked', async () => {
 			const wrapper = await mountSuspended(Tag, {
 				props: {
-					label: MOCK_LABEL,
+					name: MOCK_TAG_NAME,
 					deleteable: true
 				}
 			});
-			expect(wrapper.props()).toHaveProperty('label', MOCK_LABEL);
+			expect(wrapper.props()).toHaveProperty('name', MOCK_TAG_NAME);
 			expect(wrapper.props()).toHaveProperty('deleteable', true);
-			expect(wrapper.text()).toContain(MOCK_LABEL);
+			expect(wrapper.text()).toContain('components.atoms.Tag.label');
 			expect(wrapper.find('button').exists()).toBe(true);
 
 			await wrapper.find('button').trigger('click');

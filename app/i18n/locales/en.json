@@ -111,6 +111,13 @@
 					"label": "Toggle theme",
 					"ariaLabel": "@:components.atoms.Buttons.ToggleThemeButton.label"
 				}
+			},
+			"Tag": {
+				"label": "{name}",
+				"ariaLabel": "Tag {name}",
+				"button": {
+					"ariaLabel": "Delete tag {name}"
+				}
 			}
 		}
 	}
