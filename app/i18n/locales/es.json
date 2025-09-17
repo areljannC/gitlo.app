@@ -130,6 +130,12 @@
 					"placeholder": "Introduce el nombre de la nueva tarjeta...",
 					"ariaLabel": "Introduce el nombre de la nueva tarjeta"
 				}
+			},
+			"Column": {
+				"input": {
+					"placeholder": "Introduce el nombre de la columna...",
+					"ariaLabel": "Introduce el nombre de la columna"
+				}
 			}
 		}
 	},

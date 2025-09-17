@@ -1,21 +1,23 @@
 <script setup lang="ts">
-import { computed, reactive, useTemplateRef, ref, watch } from 'vue';
+import { defineProps, computed, reactive, useTemplateRef, ref, watch } from 'vue';
 import * as v from 'valibot';
+import { useI18n } from '#imports';
+import { prefixer } from '~/shared/utils';
 import { useColumnsStore } from '~/stores';
 import * as columnSchema from '~/schemas/columnSchema';
 import type { FormSubmitEvent } from '@nuxt/ui';
 
-const props = defineProps({
-	columnId: {
-		type: String,
-		required: true
-	},
-});
+const props = defineProps<{
+	columnId: string
+}>();
+
+const pf = prefixer('components.atoms.Column.');
+const { t } = useI18n();
 
 const columnsStore = useColumnsStore();
 const column = computed(() => columnsStore.getColumnById(props.columnId));
 const columnForm = useTemplateRef<HTMLFormElement>('columnForm');
-const columnFormSchema = v.object({ name: columnSchema.getNameValidator() });
+const columnFormSchema = v.object({ name: columnSchema.getNameValidator(t) });
 const columnFormState = reactive({ name: column.value?.name });
 const isEditingColumnName = ref(false);
 
@@ -65,10 +67,11 @@ const darkThemeClass = 'dark:bg-gray-800';
 			<UForm ref="columnForm" :schema="columnFormSchema" :state="columnFormState"
 				@submit="handleSubmitColumnNameChange">
 				<UFormField name="name" size="lg">
-					<UInput v-model="columnFormState.name" type="text" placeholder="Enter column name..."
-						color="secondary" :highlight="isEditingColumnName" class='w-full font-bold' size="lg"
-						:variant="isEditingColumnName ? 'soft' : 'ghost'" @focus="handleStartEditingColumnName"
-						@blur="handleStopEditingColumnName" @keydown.enter.prevent="handleStopEditingColumnName" />
+					<UInput v-model="columnFormState.name" type="text" :placeholder="t(pf('input.placeholder'))"
+						:aria-label="t(pf('input.ariaLabel'))" color="secondary" :highlight="isEditingColumnName"
+						class='w-full font-bold' size="lg" :variant="isEditingColumnName ? 'soft' : 'ghost'"
+						@focus="handleStartEditingColumnName" @blur="handleStopEditingColumnName"
+						@keydown.enter.prevent="handleStopEditingColumnName" />
 				</UFormField>
 			</UForm>
 			<UIcon name="heroicons:arrows-up-down-solid"
@@ -78,9 +81,9 @@ const darkThemeClass = 'dark:bg-gray-800';
 		</div>
 		<Cards :columnId="column.id" :cardIds="column.cardIds" />
 		<div class="w-full flex justify-between items-center gap-2">
-			<ArchiveButton v-if="!column.archived" @archive="handleArchiveColumn" />
-			<UnarchiveButton v-else @unarchive="handleUnarchiveColumn" />
-			<DeleteButton v-if="column.archived" @delete="handleDeleteColumn" />
+			<ArchiveButton v-if="!column.archived" @archive="handleArchiveColumn" type="column" :name="column.name" />
+			<UnarchiveButton v-else @unarchive="handleUnarchiveColumn" type="column" :name="column.name" />
+			<DeleteButton v-if="column.archived" @delete="handleDeleteColumn" type="column" :name="column.name" />
 		</div>
 	</div>
 </template>

@@ -130,6 +130,12 @@
 					"placeholder": "Entrez le nom de la nouvelle carte...",
 					"ariaLabel": "Entrez le nom de la nouvelle carte"
 				}
+			},
+			"Column": {
+				"input": {
+					"placeholder": "Entrez le nom de la colonne...",
+					"ariaLabel": "Entrez le nom de la colonne"
+				}
 			}
 		}
 	},
