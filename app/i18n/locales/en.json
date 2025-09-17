@@ -136,6 +136,20 @@
 					"placeholder": "Enter column name...",
 					"ariaLabel": "Enter column name"
 				}
+			},
+			"Card": {
+				"input": {
+					"placeholder": "Enter card name...",
+					"ariaLabel": "Enter card name"
+				},
+				"buttons": {
+					"expand": {
+						"ariaLabel": "Expand card"
+					},
+					"drag": {
+						"ariaLabel": "Drag card"
+					}
+				}
 			}
 		}
 	},

@@ -136,6 +136,20 @@
 					"placeholder": "Entrez le nom de la colonne...",
 					"ariaLabel": "Entrez le nom de la colonne"
 				}
+			},
+			"Card": {
+				"input": {
+					"placeholder": "Entrez le nom de la carte...",
+					"ariaLabel": "Entrez le nom de la carte"
+				},
+				"buttons": {
+					"expand": {
+						"ariaLabel": "Agrandir la carte"
+					},
+					"drag": {
+						"ariaLabel": "Déplacer la carte"
+					}
+				}
 			}
 		}
 	},

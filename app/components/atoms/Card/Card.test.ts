@@ -1,10 +1,12 @@
 import { vi, describe, beforeEach, it, expect } from 'vitest';
 import { setActivePinia, createPinia } from 'pinia';
-import { mountSuspended } from '@nuxt/test-utils/runtime';
+import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime';
 import { useBoardsStore, useColumnsStore, useCardsStore } from '~/stores';
 import { generateHash, getTimestamp } from '~/shared/utils';
 import { MOCK_HASH, MOCK_TIMESTAMP, MOCK_BOARD, MOCK_COLUMN, MOCK_CARD } from '~/constants';
 import Card from './Card.vue';
+
+mockNuxtImport('useI18n', () => () => ({ t: (key: string) => key }));
 
 vi.mock('~/shared/utils', async () => {
 	const actual = await vi.importActual<typeof import('~/shared/utils')>('~/shared/utils');

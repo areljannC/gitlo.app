@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { defineProps, useTemplateRef, reactive, ref } from 'vue';
 import * as v from 'valibot';
+import { useI18n } from '#imports';
 import { prefixer } from '~/shared/utils';
 import { useCardsStore } from '~/stores';
 import * as cardSchema from '~/schemas/cardSchema';

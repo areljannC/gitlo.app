@@ -1,21 +1,23 @@
 <script setup lang="ts">
-import { computed, reactive, useTemplateRef, ref, watch } from 'vue';
+import { defineProps, computed, reactive, useTemplateRef, ref, watch } from 'vue';
 import * as v from 'valibot';
+import { useI18n } from '#imports';
+import { prefixer } from '~/shared/utils';
 import { useCardsStore } from '~/stores';
 import * as cardSchema from '~/schemas/cardSchema';
 import type { FormSubmitEvent } from '@nuxt/ui';
 
-const props = defineProps({
-	cardId: {
-		type: String,
-		required: true
-	},
-});
+const props = defineProps<{
+	cardId: string
+}>();
+
+const pf = prefixer('components.atoms.Card.');
+const { t } = useI18n();
 
 const cardsStore = useCardsStore();
 const card = computed(() => cardsStore.getCardById(props.cardId));
 const cardForm = useTemplateRef<HTMLFormElement>('cardForm');
-const cardFormSchema = v.object({ name: cardSchema.getNameValidator() });
+const cardFormSchema = v.object({ name: cardSchema.getNameValidator(t) });
 const cardFormState = reactive({ name: card.value?.name });
 const isEditingCardName = ref(false);
 
@@ -56,20 +58,21 @@ const darkThemeClass = 'dark:bg-gray-600';
 		<div class="w-full flex justify-between items-start gap-1 pr-2">
 			<UForm ref="cardForm" :schema="cardFormSchema" :state="cardFormState" @submit="handleSubmit">
 				<UFormField name="name" size="lg">
-					<UTextarea v-model="cardFormState.name" placeholder="Enter card name..." color="secondary"
-						:highlight="isEditingCardName" class="w-full font-bold" size="lg"
-						:variant="isEditingCardName ? 'soft' : 'ghost'" :rows="1" :maxrows="0" autoresize
-						:autoresizeDelay="0" @focus="handleStartEditingCardName" @blur="handleStopEditingCardName"
-						@keydown.enter.prevent="handleStopEditingCardName" />
+					<UTextarea v-model="cardFormState.name" :placeholder="t(pf('input.placeholder'))"
+						:aria-label="t(pf('input.ariaLabel'))" color="secondary" :highlight="isEditingCardName"
+						class="w-full font-bold" size="lg" :variant="isEditingCardName ? 'soft' : 'ghost'" :rows="1"
+						:maxrows="0" autoresize :autoresizeDelay="0" @focus="handleStartEditingCardName"
+						@blur="handleStopEditingCardName" @keydown.enter.prevent="handleStopEditingCardName" />
 				</UFormField>
 			</UForm>
 
 			<div class="w-fit h-fit flex gap-1 items-center">
-				<UButton icon="heroicons:arrows-pointing-out-20-solid" class="size-5 w-fit h-fit cursor-pointer"
-					variant="ghost" color="neutral" @click="handleExpandCard" />
-				<UIcon name="heroicons:arrows-up-down-solid"
+				<UButton icon="heroicons:arrows-pointing-out-20-solid" :aria-label="t(pf('buttons.expand.ariaLabel'))"
+					class="size-5 w-fit h-fit cursor-pointer" variant="ghost" color="neutral"
+					@click="handleExpandCard" />
+				<UIcon name="heroicons:arrows-up-down-solid" :aria-label="t(pf('buttons.drag.ariaLabel'))"
 					class="size-5 draggable-card md:hidden hover:cursor-grab active:cursor-grabbing" />
-				<UIcon name="icon-park-outline:direction-adjustment-two"
+				<UIcon name="icon-park-outline:direction-adjustment-two" :aria-label="t(pf('buttons.drag.ariaLabel'))"
 					class="size-5 draggable-card cursor-move hidden md:block hover:cursor-grab active:cursor-grabbing" />
 			</div>
 		</div>
