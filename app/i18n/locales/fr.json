@@ -124,6 +124,12 @@
 					"placeholder": "Entrez le nom de la nouvelle colonne...",
 					"ariaLabel": "Entrez le nom de la nouvelle colonne"
 				}
+			},
+			"CreateCard": {
+				"input": {
+					"placeholder": "Entrez le nom de la nouvelle carte...",
+					"ariaLabel": "Entrez le nom de la nouvelle carte"
+				}
 			}
 		}
 	},

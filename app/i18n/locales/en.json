@@ -124,6 +124,12 @@
 					"placeholder": "Enter new column name...",
 					"ariaLabel": "Enter new column name"
 				}
+			},
+			"CreateCard": {
+				"input": {
+					"placeholder": "Enter new card name...",
+					"ariaLabel": "Enter new card name"
+				}
 			}
 		}
 	},
