@@ -120,5 +120,44 @@
 				}
 			}
 		}
+	},
+	"schemas": {
+		"board": {
+			"id": {
+				"nonEmpty": "L'identifiant du tableau ne peut pas être vide."
+			},
+			"name": {
+				"nonEmpty": "Le nom du tableau ne peut pas être vide.",
+				"minLength": "Le nom du tableau doit comporter au moins 4 caractères.",
+				"maxLength": "Le nom du tableau ne peut pas dépasser 32 caractères."
+			},
+			"description": {
+				"maxLength": "La description du tableau ne peut pas dépasser 128 caractères."
+			},
+			"tag": {
+				"minLength": "Le tag doit comporter au moins 2 caractères.",
+				"maxLength": "Le tag ne peut pas dépasser 16 caractères."
+			},
+			"columns": {
+				"minCount": "Un tableau doit avoir au moins 1 colonne.",
+				"maxCount": "Un tableau ne peut pas avoir plus de 16 colonnes."
+			}
+		},
+		"column": {
+			"id": {
+				"nonEmpty": "L'identifiant de la colonne ne peut pas être vide."
+			},
+			"name": {
+				"maxLength": "Le nom de la colonne ne peut pas dépasser 32 caractères."
+			}
+		},
+		"card": {
+			"id": {
+				"nonEmpty": "L'identifiant de la carte ne peut pas être vide."
+			},
+			"name": {
+				"maxLength": "Le nom de la carte ne peut pas dépasser 64 caractères."
+			}
+		}
 	}
 }

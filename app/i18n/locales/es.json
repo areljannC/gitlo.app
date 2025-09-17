@@ -120,5 +120,44 @@
 				}
 			}
 		}
+	},
+	"schemas": {
+		"board": {
+			"id": {
+				"nonEmpty": "El ID del tablero no puede estar vacío."
+			},
+			"name": {
+				"nonEmpty": "El nombre del tablero no puede estar vacío.",
+				"minLength": "El nombre del tablero debe tener al menos 4 caracteres.",
+				"maxLength": "El nombre del tablero no puede exceder los 32 caracteres."
+			},
+			"description": {
+				"maxLength": "La descripción del tablero no puede exceder los 128 caracteres."
+			},
+			"tag": {
+				"minLength": "La etiqueta debe tener al menos 2 caracteres.",
+				"maxLength": "La etiqueta no puede exceder los 16 caracteres."
+			},
+			"columns": {
+				"minCount": "Un tablero debe tener al menos 1 columna.",
+				"maxCount": "Un tablero no puede tener más de 16 columnas."
+			}
+		},
+		"column": {
+			"id": {
+				"nonEmpty": "El ID de la columna no puede estar vacío."
+			},
+			"name": {
+				"maxLength": "El nombre de la columna no puede exceder los 32 caracteres."
+			}
+		},
+		"card": {
+			"id": {
+				"nonEmpty": "El ID de la tarjeta no puede estar vacío."
+			},
+			"name": {
+				"maxLength": "El nombre de la tarjeta no puede exceder los 64 caracteres."
+			}
+		}
 	}
 }

@@ -120,5 +120,44 @@
 				}
 			}
 		}
+	},
+	"schemas": {
+		"board": {
+			"id": {
+				"nonEmpty": "Board ID cannot be empty."
+			},
+			"name": {
+				"nonEmpty": "Board name cannot be empty.",
+				"minLength": "Board name must be at least 4 characters long.",
+				"maxLength": "Board name cannot exceed 32 characters."
+			},
+			"description": {
+				"maxLength": "Board description cannot exceed 128 characters."
+			},
+			"tag": {
+				"minLength": "Tag must be at least 2 characters long.",
+				"maxLength": "Tag cannot exceed 16 characters."
+			},
+			"columns": {
+				"minCount": "A board must have at least 1 column.",
+				"maxCount": "A board cannot have more than 16 columns."
+			}
+		},
+		"column": {
+			"id": {
+				"nonEmpty": "Column ID cannot be empty."
+			},
+			"name": {
+				"maxLength": "Column name cannot exceed 32 characters."
+			}
+		},
+		"card": {
+			"id": {
+				"nonEmpty": "Card ID cannot be empty."
+			},
+			"name": {
+				"maxLength": "Card name cannot exceed 64 characters."
+			}
+		}
 	}
 }
