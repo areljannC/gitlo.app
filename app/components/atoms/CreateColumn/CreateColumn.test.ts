@@ -1,10 +1,13 @@
 import { vi, describe, beforeEach, it, expect } from 'vitest';
 import { setActivePinia, createPinia } from 'pinia';
-import { mountSuspended } from '@nuxt/test-utils/runtime';
+import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime';
 import { useBoardsStore, useColumnsStore, useCardsStore } from '~/stores';
-import { generateHash, getTimestamp } from '~/shared/utils';
+import { prefixer, generateHash, getTimestamp } from '~/shared/utils';
 import { MOCK_HASH, MOCK_TIMESTAMP, MOCK_BOARD, MOCK_COLUMN, MOCK_CARD } from '~/constants';
 import CreateColumn from './CreateColumn.vue';
+
+mockNuxtImport('useI18n', () => () => ({ t: (key: string) => key }));
+const pf = prefixer('components.atoms.CreateColumn.');
 
 vi.mock('~/shared/utils', async () => {
 	const actual = await vi.importActual<typeof import('~/shared/utils')>('~/shared/utils');
@@ -136,7 +139,7 @@ describe('CreateColumn', () => {
 		});
 		const columnNameInput = wrapper.find('input');
 		expect(columnNameInput.exists()).toBe(true);
-		expect(columnNameInput.attributes('placeholder')).toBe('Enter new column name...');
+		expect(columnNameInput.attributes('placeholder')).toBe(pf('input.placeholder'));
 		expect(columnNameInput.element.value).toBe('');
 	});
 

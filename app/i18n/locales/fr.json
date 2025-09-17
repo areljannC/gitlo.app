@@ -118,6 +118,12 @@
 				"button": {
 					"ariaLabel": "Supprimer le tag {name}"
 				}
+			},
+			"CreateColumn": {
+				"input": {
+					"placeholder": "Entrez le nom de la nouvelle colonne...",
+					"ariaLabel": "Entrez le nom de la nouvelle colonne"
+				}
 			}
 		}
 	},

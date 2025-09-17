@@ -118,6 +118,12 @@
 				"button": {
 					"ariaLabel": "Delete tag {name}"
 				}
+			},
+			"CreateColumn": {
+				"input": {
+					"placeholder": "Enter new column name...",
+					"ariaLabel": "Enter new column name"
+				}
 			}
 		}
 	},

@@ -1,20 +1,21 @@
 <script setup lang="ts">
-import { reactive, useTemplateRef, ref } from 'vue';
+import { defineProps, useTemplateRef, reactive, ref } from 'vue';
 import * as v from 'valibot';
+import { prefixer } from '~/shared/utils';
 import { useColumnsStore } from '~/stores'
 import * as columnSchema from '~/schemas/columnSchema';
 import type { FormSubmitEvent } from '@nuxt/ui';
 
-const props = defineProps({
-	boardId: {
-		type: String,
-		required: true,
-	}
-});
+const props = defineProps<{
+	boardId: string
+}>();
+
+const pf = prefixer('components.atoms.CreateColumn.');
+const { t } = useI18n();
 
 const columnsStore = useColumnsStore();
 const createColumnForm = useTemplateRef<HTMLFormElement>('createColumnForm');
-const createColumnFormSchema = v.object({ name: columnSchema.getNameValidator() });
+const createColumnFormSchema = v.object({ name: columnSchema.getNameValidator(t) });
 const createColumnFormState = reactive({ name: '' });
 const isEditingColumnName = ref(false);
 
@@ -49,11 +50,11 @@ const darkThemeClass = 'dark:bg-gray-800';
 		<UForm ref="createColumnForm" :schema="createColumnFormSchema" :state="createColumnFormState"
 			@submit="handleSubmit">
 			<UFormField name="name" size="lg">
-				<UInput v-model="createColumnFormState.name" type="text" placeholder="Enter new column name..."
-					color="secondary" icon="heroicons:plus-solid" :highlight="isEditingColumnName"
-					class='w-full font-bold' size="lg" :variant="isEditingColumnName ? 'soft' : 'ghost'"
-					@focus="handleStartEditingColumnName" @blur="handleStopEditingColumnName"
-					@keydown.enter.prevent="handleStopEditingColumnName" />
+				<UInput v-model="createColumnFormState.name" type="text" :placeholder="t(pf('input.placeholder'))"
+					:aria-label="t(pf('input.ariaLabel'))" color="secondary" icon="heroicons:plus-solid"
+					:highlight="isEditingColumnName" class='w-full font-bold' size="lg"
+					:variant="isEditingColumnName ? 'soft' : 'ghost'" @focus="handleStartEditingColumnName"
+					@blur="handleStopEditingColumnName" @keydown.enter.prevent="handleStopEditingColumnName" />
 			</UFormField>
 		</UForm>
 	</div>
