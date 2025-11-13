@@ -28,7 +28,7 @@ const handleDelete = () => {
 
 <template>
 	<UBadge :label="t(pf('label'), { name: props.name })" :aria-label="t(pf('ariaLabel'), { name: props.name })"
-		:color="props.color" :variant="props.variant" :size="props.size">
+		role="listitem" :color="props.color" :variant="props.variant" :size="props.size">
 		<template v-if="props.deleteable" #trailing>
 			<UButton :aria-label="t(pf('button.ariaLabel'), { name: props.name })" :color="props.color"
 				icon="heroicons:x-mark-solid" variant="ghost" square :size="props.size" @click="handleDelete" />
