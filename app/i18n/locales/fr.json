@@ -151,6 +151,22 @@
 					}
 				}
 			}
+		},
+		"molecules": {
+			"ActionMenu": {
+				"openMenu": {
+					"ariaLabel": {
+						"board": "Ouvrir le menu d'actions du tableau",
+						"boards": "Ouvrir le menu d'actions des tableaux"
+					}
+				},
+				"closeMenu": {
+					"ariaLabel": {
+						"board": "Fermer le menu d'actions du tableau",
+						"boards": "Fermer le menu d'actions des tableaux"
+					}
+				}
+			}
 		}
 	},
 	"schemas": {

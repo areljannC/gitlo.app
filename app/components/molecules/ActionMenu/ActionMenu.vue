@@ -1,14 +1,23 @@
 <script setup lang="ts">
-import { ref, useTemplateRef } from 'vue';
+import { defineProps, ref, useTemplateRef } from 'vue';
 import { onClickOutside } from '@vueuse/core';
+import { useI18n } from '#imports';
+import { prefixer } from '~/shared/utils';
+
+const props = defineProps<{
+	type: 'board' | 'boards';
+}>();
+
+const pf = prefixer('components.molecules.ActionMenu.');
+const { t } = useI18n();
 
 const isOpen = ref(false);
 const handleOpenMenu = () => {
 	isOpen.value = true;
-}
+};
 const handleCloseMenu = () => {
 	isOpen.value = false;
-}
+};
 
 const target = useTemplateRef<HTMLElement>('target');
 onClickOutside(target, () => {
@@ -23,11 +32,11 @@ const hoverEffectClass = 'hover:shadow-md hover:-translate-y-0.25 transition-tra
 
 <template>
 	<div ref="target" class="fixed bottom-8 right-8 flex flex-col gap-4 justify-end items-end">
-		<UButton v-if="!isOpen" color="secondary" size="xl" :class="[buttonClass, hoverEffectClass]"
-			trailing-icon="heroicons:squares-plus" @click="handleOpenMenu" />
 		<ToggleThemeButton v-if="isOpen" />
 		<slot v-if="isOpen" :class="[hoverEffectClass]" />
-		<UButton v-if="isOpen" color="secondary" size="xl" :class="[buttonClass, hoverEffectClass]"
-			trailing-icon="heroicons:x-mark-solid" @click="handleCloseMenu" />
+		<UButton color="secondary" size="xl" :class="[buttonClass, hoverEffectClass]"
+			trailing-icon="isOpen ? heroicons:x-mark-solid : heroicons:squares-plus"
+			@click="isOpen ? handleCloseMenu() : handleOpenMenu()"
+			:aria-label="t(pf(isOpen ? `closeMenu.ariaLabel.${props.type}` : `openMenu.ariaLabel.${props.type}`))" />
 	</div>
 </template>
