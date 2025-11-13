@@ -113,7 +113,6 @@
 				}
 			},
 			"Tag": {
-				"label": "{name}",
 				"ariaLabel": "Tag {name}",
 				"button": {
 					"ariaLabel": "Delete tag {name}"

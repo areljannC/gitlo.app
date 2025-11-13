@@ -28,7 +28,7 @@ describe('Tag', () => {
 					}
 				});
 				expect(wrapper.props()).toHaveProperty('name', MOCK_TAG_NAME);
-				expect(wrapper.text()).toContain('components.atoms.Tag.label');
+				expect(wrapper.text()).toContain(MOCK_TAG_NAME);
 			});
 		});
 
@@ -121,7 +121,7 @@ describe('Tag', () => {
 				});
 				expect(wrapper.props()).toHaveProperty('name', MOCK_TAG_NAME);
 				expect(wrapper.props()).toHaveProperty('deleteable', true);
-				expect(wrapper.text()).toContain('components.atoms.Tag.label');
+				expect(wrapper.text()).toContain(MOCK_TAG_NAME);
 				expect(wrapper.find('button').exists()).toBe(true);
 			});
 
@@ -134,7 +134,7 @@ describe('Tag', () => {
 				});
 				expect(wrapper.props()).toHaveProperty('name', MOCK_TAG_NAME);
 				expect(wrapper.props()).toHaveProperty('deleteable', false);
-				expect(wrapper.text()).toContain('components.atoms.Tag.label');
+				expect(wrapper.text()).toContain(MOCK_TAG_NAME);
 				expect(wrapper.find('button').exists()).toBe(false);
 			});
 		});
@@ -150,9 +150,8 @@ describe('Tag', () => {
 			});
 			expect(wrapper.props()).toHaveProperty('name', MOCK_TAG_NAME);
 			expect(wrapper.props()).toHaveProperty('deleteable', true);
-			expect(wrapper.text()).toContain('components.atoms.Tag.label');
+			expect(wrapper.text()).toContain(MOCK_TAG_NAME);
 			expect(wrapper.find('button').exists()).toBe(true);
-
 			await wrapper.find('button').trigger('click');
 			expect(wrapper.emitted()).toHaveProperty('delete');
 		});
