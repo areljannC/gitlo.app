@@ -165,6 +165,14 @@
 						"boards": "Close boards actions menu"
 					}
 				}
+			},
+			"BoardPreview": {
+				"buttons": {
+					"view": {
+						"label": "View",
+						"ariaLabel": "View board {name}"
+					}
+				}
 			}
 		}
 	},

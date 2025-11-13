@@ -165,6 +165,14 @@
 						"boards": "Fermer le menu d'actions des tableaux"
 					}
 				}
+			},
+			"BoardPreview": {
+				"buttons": {
+					"view": {
+						"label": "Voir",
+						"ariaLabel": "Voir le tableau {name}"
+					}
+				}
 			}
 		}
 	},

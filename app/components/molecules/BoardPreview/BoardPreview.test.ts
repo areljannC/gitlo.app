@@ -1,8 +1,12 @@
 import { vi, describe, beforeEach, it, expect } from 'vitest';
 import { setActivePinia, createPinia } from 'pinia';
-import { mountSuspended } from '@nuxt/test-utils/runtime';
+import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime';
+import { prefixer } from '~/shared/utils';
 import { MOCK_HASH, MOCK_TIMESTAMP, MOCK_BOARD, MOCK_COLUMN, MOCK_CARD } from '~/constants';
 import BoardPreview from './BoardPreview.vue';
+
+mockNuxtImport('useI18n', () => () => ({ t: (key: string) => key }));
+const pf = prefixer('components.molecules.BoardPreview.');
 
 describe('BoardPreview', () => {
 	it('should render a board preview with a name, a description, tags and a view button', async () => {
@@ -96,6 +100,7 @@ describe('BoardPreview', () => {
 
 		const button = wrapper.find('button');
 		expect(button).toBeTruthy();
+		expect(button.text()).toBe(pf('buttons.view.label'));
 		await button.trigger('click');
 		expect(wrapper.emitted()).toHaveProperty('view');
 	});
