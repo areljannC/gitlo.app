@@ -35,8 +35,8 @@ const hoverEffectClass = 'hover:shadow-md hover:-translate-y-0.25 transition-tra
 		<ToggleThemeButton v-if="isOpen" />
 		<slot v-if="isOpen" :class="[hoverEffectClass]" />
 		<UButton color="secondary" size="xl" :class="[buttonClass, hoverEffectClass]"
-			trailing-icon="isOpen ? heroicons:x-mark-solid : heroicons:squares-plus"
-			@click="isOpen ? handleCloseMenu() : handleOpenMenu()"
-			:aria-label="t(pf(isOpen ? `closeMenu.ariaLabel.${props.type}` : `openMenu.ariaLabel.${props.type}`))" />
+			:trailing-icon="isOpen ? 'heroicons:x-mark-solid' : 'heroicons:squares-plus'"
+			:aria-label="t(pf(isOpen ? `closeMenu.ariaLabel.${props.type}` : `openMenu.ariaLabel.${props.type}`))"
+			@click="isOpen ? handleCloseMenu() : handleOpenMenu()" />
 	</div>
 </template>
