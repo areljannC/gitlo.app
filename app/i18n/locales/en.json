@@ -160,6 +160,15 @@
 					"label": "Description",
 					"description": "Optional context about this board's purpose.",
 					"placeholder": "Enter board description..."
+				},
+				"BoardTagField": {
+					"label": "Tags",
+					"description": "Add tags to help organize and filter your board.",
+					"placeholder": "Enter tags..."
+				},
+				"BoardColumnsField": {
+					"label": "Columns",
+					"description": "Define the initial columns for your board."
 				}
 			}
 		},
@@ -185,15 +194,6 @@
 						"ariaLabel": "View board {name}"
 					}
 				}
-			},
-			"BoardTagField": {
-				"label": "Tags",
-				"description": "Add tags to help organize and filter your board.",
-				"placeholder": "Enter tags..."
-			},
-			"BoardColumnsField": {
-				"label": "Columns",
-				"description": "Define the initial columns for your board."
 			}
 		}
 	},
