@@ -149,6 +149,13 @@
 						"ariaLabel": "Déplacer la carte"
 					}
 				}
+			},
+			"Fields": {
+				"BoardNameField": {
+					"label": "Nom",
+					"description": "Un titre court et clair pour ce tableau.",
+					"placeholder": "Entrez le nom du tableau..."
+				}
 			}
 		},
 		"molecules": {

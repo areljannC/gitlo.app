@@ -149,6 +149,13 @@
 						"ariaLabel": "Arrastrar tarjeta"
 					}
 				}
+			},
+			"Fields": {
+				"BoardNameField": {
+					"label": "Nombre",
+					"description": "Un título corto y claro para este tablero.",
+					"placeholder": "Introduce el nombre del tablero..."
+				}
 			}
 		},
 		"molecules": {

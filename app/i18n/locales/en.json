@@ -149,6 +149,13 @@
 						"ariaLabel": "Drag card"
 					}
 				}
+			},
+			"Fields": {
+				"BoardNameField": {
+					"label": "Name",
+					"description": "A short, clear title for this board.",
+					"placeholder": "Enter board name..."
+				}
 			}
 		},
 		"molecules": {
