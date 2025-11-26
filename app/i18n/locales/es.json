@@ -160,6 +160,11 @@
 					"label": "Descripción",
 					"description": "Contexto opcional sobre el propósito de este tablero.",
 					"placeholder": "Introduce la descripción del tablero..."
+				},
+				"BoardTagField": {
+					"label": "Etiquetas",
+					"description": "Agrega etiquetas para ayudar a organizar y filtrar tu tablero.",
+					"placeholder": "Introduce etiquetas..."
 				}
 			}
 		},

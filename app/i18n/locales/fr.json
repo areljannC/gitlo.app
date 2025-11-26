@@ -160,6 +160,11 @@
 					"label": "Description",
 					"description": "Contexte optionnel sur l'objectif de ce tableau.",
 					"placeholder": "Entrez la description du tableau..."
+				},
+				"BoardTagField": {
+					"label": "Étiquettes",
+					"description": "Ajoutez des étiquettes pour organiser et filtrer votre tableau.",
+					"placeholder": "Entrez des étiquettes..."
 				}
 			}
 		},

@@ -185,6 +185,11 @@
 						"ariaLabel": "View board {name}"
 					}
 				}
+			},
+			"BoardTagField": {
+				"label": "Tags",
+				"description": "Add tags to help organize and filter your board.",
+				"placeholder": "Enter tags..."
 			}
 		}
 	},
