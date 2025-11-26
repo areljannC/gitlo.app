@@ -165,6 +165,10 @@
 					"label": "Étiquettes",
 					"description": "Ajoutez des étiquettes pour organiser et filtrer votre tableau.",
 					"placeholder": "Entrez des étiquettes..."
+				},
+				"BoardColumnsField": {
+					"label": "Colonnes",
+					"description": "Définissez les colonnes initiales pour votre tableau."
 				}
 			}
 		},

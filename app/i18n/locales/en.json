@@ -190,6 +190,10 @@
 				"label": "Tags",
 				"description": "Add tags to help organize and filter your board.",
 				"placeholder": "Enter tags..."
+			},
+			"BoardColumnsField": {
+				"label": "Columns",
+				"description": "Define the initial columns for your board."
 			}
 		}
 	},
