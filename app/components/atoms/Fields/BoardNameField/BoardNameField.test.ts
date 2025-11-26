@@ -10,7 +10,7 @@ describe('BoardNameField', () => {
 	it('renders label, description, and placeholder', async () => {
 		const wrapper = await mountSuspended(BoardNameField, {
 			props: {
-				modelValue: 'Test Board',
+				modelValue: 'Test Name',
 				name: 'name'
 			}
 		});
@@ -23,15 +23,15 @@ describe('BoardNameField', () => {
 	it('sets the input value from `modelValue`', async () => {
 		const wrapper = await mountSuspended(BoardNameField, {
 			props: {
-				modelValue: 'Test Board',
+				modelValue: 'Test Name',
 				name: 'name'
 			}
 		});
 		const input = wrapper.find('input');
-		expect(input.element.value).toBe('Test Board');
+		expect(input.element.value).toBe('Test Name');
 	});
 
-	it('emits update:modelValue when input changes', async () => {
+	it('emits `update:modelValue` when input changes', async () => {
 		const wrapper = await mountSuspended(BoardNameField, {
 			props: {
 				modelValue: '',
