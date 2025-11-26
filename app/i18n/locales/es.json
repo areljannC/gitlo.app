@@ -155,6 +155,11 @@
 					"label": "Nombre",
 					"description": "Un título corto y claro para este tablero.",
 					"placeholder": "Introduce el nombre del tablero..."
+				},
+				"BoardDescriptionField": {
+					"label": "Descripción",
+					"description": "Contexto opcional sobre el propósito de este tablero.",
+					"placeholder": "Introduce la descripción del tablero..."
 				}
 			}
 		},

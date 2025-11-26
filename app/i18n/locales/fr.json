@@ -155,6 +155,11 @@
 					"label": "Nom",
 					"description": "Un titre court et clair pour ce tableau.",
 					"placeholder": "Entrez le nom du tableau..."
+				},
+				"BoardDescriptionField": {
+					"label": "Description",
+					"description": "Contexte optionnel sur l'objectif de ce tableau.",
+					"placeholder": "Entrez la description du tableau..."
 				}
 			}
 		},

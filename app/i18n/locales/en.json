@@ -155,6 +155,11 @@
 					"label": "Name",
 					"description": "A short, clear title for this board.",
 					"placeholder": "Enter board name..."
+				},
+				"BoardDescriptionField": {
+					"label": "Description",
+					"description": "Optional context about this board's purpose.",
+					"placeholder": "Enter board description..."
 				}
 			}
 		},
