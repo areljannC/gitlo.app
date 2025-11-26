@@ -11,10 +11,10 @@ describe('BoardTagField', () => {
 		const wrapper = await mountSuspended(BoardTagField, {
 			props: {
 				modelValue: 'Test Tag',
-				name: 'tag'
+				name: 'tag',
+				onEnter: vi.fn()
 			}
 		});
-
 		const html = wrapper.html();
 		expect(html).toContain(pf('label'));
 		expect(html).toContain(pf('description'));
@@ -24,10 +24,10 @@ describe('BoardTagField', () => {
 		const wrapper = await mountSuspended(BoardTagField, {
 			props: {
 				modelValue: 'Test Tag',
-				name: 'tag'
+				name: 'tag',
+				onEnter: vi.fn()
 			}
 		});
-
 		const input = wrapper.find('input');
 		expect(input.element.value).toBe('Test Tag');
 	});
@@ -36,10 +36,10 @@ describe('BoardTagField', () => {
 		const wrapper = await mountSuspended(BoardTagField, {
 			props: {
 				modelValue: '',
-				name: 'tag'
+				name: 'tag',
+				onEnter: vi.fn()
 			}
 		});
-
 		const input = wrapper.find('input');
 		await input.setValue('New Tag');
 		expect(wrapper.emitted('update:modelValue')).toBeTruthy();
@@ -55,7 +55,6 @@ describe('BoardTagField', () => {
 				onEnter
 			}
 		});
-
 		const input = wrapper.find('input');
 		await input.trigger('keydown.enter');
 		expect(onEnter).toHaveBeenCalled();

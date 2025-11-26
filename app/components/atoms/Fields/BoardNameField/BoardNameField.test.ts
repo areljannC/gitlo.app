@@ -14,7 +14,6 @@ describe('BoardNameField', () => {
 				name: 'name'
 			}
 		});
-
 		const html = wrapper.html();
 		expect(html).toContain(pf('label'));
 		expect(html).toContain(pf('description'));

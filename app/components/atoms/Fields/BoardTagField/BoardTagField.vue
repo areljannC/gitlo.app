@@ -6,7 +6,7 @@ import { prefixer } from '~/shared/utils';
 const props = defineProps<{
 	modelValue: string;
 	name: string;
-	onEnter?: () => void;
+	onEnter: () => void;
 }>();
 
 const emit = defineEmits<{

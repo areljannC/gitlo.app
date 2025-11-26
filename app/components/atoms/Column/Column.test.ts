@@ -2,11 +2,12 @@ import { vi, describe, beforeEach, it, expect } from 'vitest';
 import { setActivePinia, createPinia } from 'pinia';
 import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime';
 import { useBoardsStore, useColumnsStore, useCardsStore } from '~/stores';
-import { generateHash, getTimestamp } from '~/shared/utils';
+import { prefixer, generateHash, getTimestamp } from '~/shared/utils';
 import { MOCK_HASH, MOCK_TIMESTAMP, MOCK_BOARD, MOCK_COLUMN, MOCK_CARD } from '~/constants';
 import Column from './Column.vue';
 
 mockNuxtImport('useI18n', () => () => ({ t: (key: string) => key }));
+const buttonLocalePf = prefixer('components.atoms.Buttons.');
 
 vi.mock('~/shared/utils', async () => {
 	const actual = await vi.importActual<typeof import('~/shared/utils')>('~/shared/utils');
@@ -220,7 +221,7 @@ describe('Column', () => {
 
 		const archiveButton = buttons[1];
 		expect(archiveButton.exists()).toBe(true);
-		expect(archiveButton.text()).toBe('Archive');
+		expect(archiveButton.text()).toBe(buttonLocalePf('ArchiveButton.label'));
 
 		await archiveButton.trigger('click');
 		await wrapper.vm.$nextTick();
@@ -231,7 +232,7 @@ describe('Column', () => {
 
 		const unarchiveButton = buttons[1];
 		expect(unarchiveButton.exists()).toBe(true);
-		expect(unarchiveButton.text()).toBe('Unarchive');
+		expect(unarchiveButton.text()).toBe(buttonLocalePf('UnarchiveButton.label'));
 	});
 
 	it('should unarchive the column when the unarchive button is clicked', async () => {
@@ -252,7 +253,7 @@ describe('Column', () => {
 
 		const archiveButton = buttons[1];
 		expect(archiveButton.exists()).toBe(true);
-		expect(archiveButton.text()).toBe('Archive');
+		expect(archiveButton.text()).toBe(buttonLocalePf('ArchiveButton.label'));
 
 		await archiveButton.trigger('click');
 		await wrapper.vm.$nextTick();
@@ -263,7 +264,7 @@ describe('Column', () => {
 
 		const unarchiveButton = buttons[1];
 		expect(unarchiveButton.exists()).toBe(true);
-		expect(unarchiveButton.text()).toBe('Unarchive');
+		expect(unarchiveButton.text()).toBe(buttonLocalePf('UnarchiveButton.label'));
 
 		await unarchiveButton.trigger('click');
 		await wrapper.vm.$nextTick();
@@ -272,7 +273,7 @@ describe('Column', () => {
 		buttons = wrapper.findAll('button');
 		expect(buttons).toHaveLength(2);
 		expect(archiveButton.exists()).toBe(true);
-		expect(archiveButton.text()).toBe('Archive');
+		expect(archiveButton.text()).toBe(buttonLocalePf('ArchiveButton.label'));
 	});
 
 	it('should delete the column when the delete button is clicked', async () => {
@@ -293,7 +294,7 @@ describe('Column', () => {
 
 		const archiveButton = buttons[1];
 		expect(archiveButton.exists()).toBe(true);
-		expect(archiveButton.text()).toBe('Archive');
+		expect(archiveButton.text()).toBe(buttonLocalePf('ArchiveButton.label'));
 
 		await archiveButton.trigger('click');
 		await wrapper.vm.$nextTick();
@@ -304,7 +305,7 @@ describe('Column', () => {
 
 		const deleteButton = buttons[2];
 		expect(deleteButton.exists()).toBe(true);
-		expect(deleteButton.text()).toBe('Delete');
+		expect(deleteButton.text()).toBe(buttonLocalePf('DeleteButton.label'));
 
 		await deleteButton.trigger('click');
 		await wrapper.vm.$nextTick();
