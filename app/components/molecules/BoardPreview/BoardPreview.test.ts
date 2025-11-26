@@ -100,7 +100,7 @@ describe('BoardPreview', () => {
 
 		const button = wrapper.find('button');
 		expect(button).toBeTruthy();
-		expect(button.text()).toBe(pf('buttons.view.label'));
+		expect(button.text()).toBe(pf('button.view.label'));
 		await button.trigger('click');
 		expect(wrapper.emitted()).toHaveProperty('view');
 	});

@@ -46,7 +46,7 @@ const descriptionClass = 'text-sm md:text-md lg:text-lg break-all';
 			</ul>
 		</div>
 		<template #footer>
-			<UButton :label="t(pf('buttons.view.label'))" :aria-label="t(pf('buttons.view.ariaLabel'), { name })"
+			<UButton :label="t(pf('button.view.label'))" :aria-label="t(pf('button.view.ariaLabel'), { name })"
 				color="secondary" variant="ghost" class="w-full flex justify-center" @click="handleViewBoard" />
 		</template>
 	</UCard>

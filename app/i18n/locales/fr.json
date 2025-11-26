@@ -141,7 +141,7 @@
 					"placeholder": "Entrez le nom de la carte...",
 					"ariaLabel": "Entrez le nom de la carte"
 				},
-				"buttons": {
+				"button": {
 					"expand": {
 						"ariaLabel": "Agrandir la carte"
 					},
@@ -167,7 +167,7 @@
 				}
 			},
 			"BoardPreview": {
-				"buttons": {
+				"button": {
 					"view": {
 						"label": "Voir",
 						"ariaLabel": "Voir le tableau {name}"

@@ -141,7 +141,7 @@
 					"placeholder": "Enter card name...",
 					"ariaLabel": "Enter card name"
 				},
-				"buttons": {
+				"button": {
 					"expand": {
 						"ariaLabel": "Expand card"
 					},
@@ -167,7 +167,7 @@
 				}
 			},
 			"BoardPreview": {
-				"buttons": {
+				"button": {
 					"view": {
 						"label": "View",
 						"ariaLabel": "View board {name}"

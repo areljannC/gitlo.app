@@ -67,12 +67,12 @@ const darkThemeClass = 'dark:bg-gray-600';
 			</UForm>
 
 			<div class="w-fit h-fit flex gap-1 items-center">
-				<UButton icon="heroicons:arrows-pointing-out-20-solid" :aria-label="t(pf('buttons.expand.ariaLabel'))"
+				<UButton icon="heroicons:arrows-pointing-out-20-solid" :aria-label="t(pf('button.expand.ariaLabel'))"
 					class="size-5 w-fit h-fit cursor-pointer" variant="ghost" color="neutral"
 					@click="handleExpandCard" />
-				<UIcon name="heroicons:arrows-up-down-solid" :aria-label="t(pf('buttons.drag.ariaLabel'))"
+				<UIcon name="heroicons:arrows-up-down-solid" :aria-label="t(pf('button.drag.ariaLabel'))"
 					class="size-5 draggable-card md:hidden hover:cursor-grab active:cursor-grabbing" />
-				<UIcon name="icon-park-outline:direction-adjustment-two" :aria-label="t(pf('buttons.drag.ariaLabel'))"
+				<UIcon name="icon-park-outline:direction-adjustment-two" :aria-label="t(pf('button.drag.ariaLabel'))"
 					class="size-5 draggable-card cursor-move hidden md:block hover:cursor-grab active:cursor-grabbing" />
 			</div>
 		</div>

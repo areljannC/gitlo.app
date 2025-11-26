@@ -141,7 +141,7 @@
 					"placeholder": "Introduce el nombre de la tarjeta...",
 					"ariaLabel": "Introduce el nombre de la tarjeta"
 				},
-				"buttons": {
+				"button": {
 					"expand": {
 						"ariaLabel": "Expandir tarjeta"
 					},
@@ -167,7 +167,7 @@
 				}
 			},
 			"BoardPreview": {
-				"buttons": {
+				"button": {
 					"view": {
 						"label": "Ver",
 						"ariaLabel": "Ver tablero {name}"
